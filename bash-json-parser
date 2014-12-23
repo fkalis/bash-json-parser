@@ -172,6 +172,9 @@ function parse() {
 
 		# A valid JSON string consists of exactly one object
 		[ "$c" == "{" ] && parse_object "" "" && return
+        # ... or one array
+        [ "$c" == "[" ] && parse_array "" "" && return
+        
 	done
 }
 
