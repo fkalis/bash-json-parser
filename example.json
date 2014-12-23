@@ -1,0 +1,13 @@
+{
+    "string": "value of string",
+    "number": -125.0,
+    "boolean": true,
+    "array": [
+        {
+            "object": "object value"
+        },
+        "plain string",
+        2,
+        false
+    ]
+}
