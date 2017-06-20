@@ -30,7 +30,7 @@ function parse_array() {
 						preserve_current_char=1 # Parse value has terminated with a separator or an array end, but we can handle this only in the next while iteration
 						current_scope="entry_separator"
 						;;
-						
+
 				esac
 				;;
 			"entry_separator")
@@ -81,8 +81,8 @@ function parse_value() {
 						[ "$current_escaping" == "1" ] && current_varvalue="$current_varvalue$c" && current_escaping=0
 						;;
 					'\') # Escape character, entering or leaving escape mode
+						[ "$current_escaping" == "1" ] && current_varvalue="$current_varvalue$c"
 						current_escaping=$((1-current_escaping))
-						current_varvalue="$current_varvalue$c"
 						;;
 					*) # Any other string character
 						current_escaping=0
@@ -174,7 +174,7 @@ function parse() {
 		[ "$c" == "{" ] && parse_object "" "" && return
         # ... or one array
         [ "$c" == "[" ] && parse_array "" "" && return
-        
+
 	done
 }
 
